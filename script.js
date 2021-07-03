@@ -23,7 +23,7 @@ itemsList.forEach(e=>e.chance=Math.ceil(1/(e.cost/max)));
 
 function GeneratePool(){
     return itemsList.reduce((res,e)=>{
-        for(var i=1; i<=e.chance*2; i++)
+        for(var i=1; i<=e.chance*10; i++)
             res.push(e);
         return res;
     },[]).sort(()=>Math.random()-0.5);
@@ -55,11 +55,16 @@ function Roll(){
 
     function Win(){
         inRoll = false;
-        let item = itemsList.find(e=>e.name==items[5].dataset.model)
+        let item = Array.prototype.reduce.call(items,(best,e)=>Distance(best)>Distance(e)?e:best);
+        item = itemsList.find(e=>e.name==item.dataset.model);
         document.querySelector(".prize>.model").innerHTML = item.name;
         document.querySelector(".prize>.cost").innerHTML = item.cost + " P";
         document.querySelector(".prize").classList.add("active");
         pool = GeneratePool();
+
+        function Distance(node){
+            return Math.abs((node.offsetLeft+node.offsetWidth/2)-window.innerWidth/2);
+        }
     }
 }
 
