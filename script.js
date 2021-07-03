@@ -35,7 +35,7 @@ function Roll(){
     if(inRoll) return
     inRoll = true;
     document.querySelector(".prize").classList.remove("active");
-    let speed = 2000;
+    let speed = 1500+Math.random()*600;
     let translate = 0;
     Fill();
     let move = setInterval(()=>{
@@ -63,7 +63,7 @@ function Roll(){
         pool = GeneratePool();
 
         function Distance(node){
-            return Math.abs((node.offsetLeft+node.offsetWidth/2)-window.innerWidth/2);
+            return Math.abs((node.offsetLeft+node.offsetWidth/2)-window.screen.width/2);
         }
     }
 }
@@ -74,4 +74,3 @@ function Fill(){
 }
 
 Fill();
-
