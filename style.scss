@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+$border: 1px solid rgba(255, 255, 255, 0.4);
+*{
+    letter-spacing: 2px;
+    text-align: center;
+    color:white;
+    font-weight: 400;
+}
+body{
+    background: linear-gradient(to bottom right, #50a3a2 0%, #53e3a6 100%);
+    font-size: 18px;
+}
+h1{
+    font-family: 'Lobster', cursive;
+    font-size: 4rem;
+    border-bottom: $border;
+    padding-bottom: 1rem;
+}
+.prize{
+    margin-bottom: 50px;
+    overflow: hidden;
+    font-family: 'Lobster', cursive;
+    font-size: 2.5rem;
+    height: 0px;
+    transition: .5s ease;
+    .cost{
+        font-size: 2rem;
+    }
+    &.active{
+        height: 90px;
+    }
+}
+.wrapper{
+    display: flex;
+    overflow: hidden;
+    justify-content: center;
+    width: 60vw;
+    margin: 0 20vw;
+    border-radius: 20px;
+    .roll{
+        border: $border;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        .item{
+            border: $border;
+            width: 1000px;
+            aspect-ratio: 1/1;
+            img{
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+    &::after{
+        position: absolute;
+        transform: translateY(-2px);
+        content: "▼";
+        color: #97d3c8;
+    }
+}
+button{
+    margin: 60px auto 0;
+    display: block;
+    border: $border;
+    background-color: rgba(255, 255, 255, 0.2);
+    width: 250px;
+    border-radius: 3px;
+    padding: 10px 15px;
+    outline: 0;
+    font-size: 1rem;
+    color: white;
+    transition-duration: 0.25s;
+    &:hover{
+        background-color: rgba(255, 255, 255, 0.4);
+    }
+}
